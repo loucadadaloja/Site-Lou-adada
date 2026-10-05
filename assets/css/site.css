@@ -571,6 +571,21 @@ a.cartao:hover{border-color:var(--azul-link);transform:translateY(-3px)}
 .claro .gente p{color:#54514A}
 .claro .gente p.gente__papel{color:var(--azul)}
 
+/* o time inteiro pede largura: a foto ocupa a linha toda e o texto fica
+   embaixo dela, em vez de espremer dezesseis pessoas num recorte de retrato */
+.time{display:grid;gap:clamp(22px,3vw,34px)}
+.time h3{font-size:clamp(20px,2vw,25px);margin-top:2px}
+.time p{font-size:15px;color:var(--tinta-suave);line-height:1.58;max-width:62ch}
+.claro .time p{color:#54514A}
+.time p.gente__papel{
+  font-family:var(--caneta);font-size:23px;color:var(--latao-claro);line-height:1.1;
+}
+.claro .time p.gente__papel{color:var(--azul)}
+.time .nota{max-width:none}
+@media (min-width:861px){
+  .time{grid-template-columns:1.58fr .42fr;align-items:center}
+}
+
 /* --- linha do tempo ----------------------------------------------------- */
 .tempo{display:grid;gap:0}
 .marco{
