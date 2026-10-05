@@ -4,7 +4,7 @@
 # O endereço aparece em canonical, og:url, JSON-LD, sitemap.xml, robots.txt e
 # .htaccess. Trocar na mão significa esquecer um. Este script troca em todos.
 #
-#   ./trocar-dominio.sh loucadada.com.br
+#   ./trocar-dominio.sh loucadada.com
 #   ./trocar-dominio.sh www.loucadadapresentes.com.br
 #
 # Rode ANTES de publicar e antes de pedir indexação no Search Console.
@@ -12,7 +12,7 @@
 
 set -euo pipefail
 
-ATUAL="loucadada.com.br"
+ATUAL="loucadada.com"
 NOVO="${1:-}"
 
 if [ -z "$NOVO" ]; then

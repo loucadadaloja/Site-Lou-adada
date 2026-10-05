@@ -137,7 +137,7 @@ Ele cuida do 404, do cache, da compressão e da barra no fim da URL.
 `no-cache` para `.html`, e o redirecionamento que acrescenta a barra final.
 
 Depois de subir, cheque três coisas: se `/a-casa/` abre, se um endereço inventado
-qualquer cai no 404 da casa, e se `https://loucadada.com.br/sitemap.xml` responde.
+qualquer cai no 404 da casa, e se `https://loucadada.com/sitemap.xml` responde.
 Aí cadastre o sitemap no Google Search Console.
 
 ## Como rodar local
@@ -166,23 +166,12 @@ para não passarem despercebidas.
       Para trocar o número ou o texto, é um find/replace do link `wa.me` inteiro.
 - [x] **E-mail, razão social e CNPJ** — preenchidos: Loucadada de Araguari LTDA,
       CNPJ 23.113.863/0001-70, loucadadapresentes@yahoo.com.br.
-- [ ] **Domínio** — ainda não registrado. O site inteiro usa `loucadada.com.br`
-      como endereço provisório: ele aparece em canonical, og:url, JSON-LD,
-      sitemap.xml, robots.txt e .htaccess.
+- [x] **Domínio** — registrado: `loucadada.com` (Hostinger, 28/09/2026). O site inteiro
+      já aponta para ele: canonical, og:url, JSON-LD, sitemap.xml, robots.txt e .htaccess,
+      trocados de uma vez com `./trocar-dominio.sh loucadada.com`.
 
-      Quando o domínio for decidido, **rode o script antes de publicar**:
-
-          ./trocar-dominio.sh dominioescolhido.com.br
-
-      Ele troca em todos os arquivos de uma vez e mostra quantas ocorrências
-      mexeu em cada um. Trocar na mão significa esquecer um.
-
-      Isso precisa acontecer **antes de pedir indexação no Search Console**.
-      Depois que o Google indexa, mudar de domínio joga autoridade fora.
-
-      Na consulta de 15/09/2026, `loucadada.com.br`, `loucadada.com` e
-      `loucadadapresentes.com.br` não tinham registro de DNS ativo, o que
-      sugere que estão livres. Confirme no registro.br antes de contar com isso.
+      Se um dia o endereço mudar, rode o script de novo **antes de pedir indexação no
+      Search Console**. Depois que o Google indexa, mudar de domínio joga autoridade fora.
 - [ ] **Fotos novas** — as imagens atuais são o acervo existente. Quando sair o ensaio
       profissional, substituir (ver abaixo) e conferir os `alt`, que descrevem cenas
       específicas das fotos atuais.

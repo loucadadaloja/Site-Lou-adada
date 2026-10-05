@@ -88,4 +88,4 @@ ErrorDocument 404 /404.html
 # --- redirecionamentos --------------------------------------------------------
 # Regra de ouro do playbook: URL nunca morre, ela redireciona.
 # Quando alguma URL mudar, o 301 entra aqui, nesta ordem:
-#   Redirect 301 /url-antiga/ https://loucadada.com.br/url-nova/
+#   Redirect 301 /url-antiga/ https://loucadada.com/url-nova/

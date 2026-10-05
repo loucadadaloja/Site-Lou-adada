@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://loucadada.com.br/sitemap.xml
+Sitemap: https://loucadada.com/sitemap.xml
