@@ -586,6 +586,81 @@ a.cartao:hover{border-color:var(--azul-link);transform:translateY(-3px)}
   .time{grid-template-columns:1.58fr .42fr;align-items:center}
 }
 
+/* --- carrossel da reinauguração ------------------------------------------ */
+/* Três fotos à vista: a do meio em foco, as dos lados menores e desfocadas.
+   Quem gira entra em foco e quem sai perde o foco, no mesmo movimento. O
+   desfoque é de propósito: ele diz onde olhar sem precisar de seta piscando. */
+.giro{--giro-largura:clamp(230px,30vw,420px)}
+.giro__palco{
+  position:relative;
+  height:calc(var(--giro-largura) * 1.5 + 74px);
+  overflow:hidden;
+}
+.giro__item{
+  position:absolute;top:0;left:50%;margin:0;
+  width:var(--giro-largura);
+  transform:translateX(-50%) scale(.78);
+  opacity:0;filter:blur(6px);
+  transition:transform .75s cubic-bezier(.22,.61,.36,1),
+             opacity .55s ease,filter .55s ease;
+  pointer-events:none;
+}
+.giro__item img{
+  display:block;width:100%;aspect-ratio:2/3;object-fit:cover;
+  border-radius:var(--raio-foto);background:var(--grafite-alto);
+}
+.giro__item figcaption{
+  margin-top:14px;font-size:13.5px;line-height:1.45;color:var(--tinta-fraca);
+  opacity:0;transition:opacity .4s ease .2s;
+}
+
+/* a do meio: inteira, nítida, na frente */
+.giro__item[data-pos="0"]{
+  transform:translateX(-50%) scale(1);
+  opacity:1;filter:none;z-index:3;pointer-events:auto;
+}
+.giro__item[data-pos="0"] figcaption{opacity:1}
+
+/* as vizinhas: encostadas nas bordas da do meio, menores e fora de foco */
+.giro__item[data-pos="-1"]{
+  transform:translateX(-122%) scale(.8);
+  opacity:.5;filter:blur(3.5px);z-index:2;
+}
+.giro__item[data-pos="1"]{
+  transform:translateX(22%) scale(.8);
+  opacity:.5;filter:blur(3.5px);z-index:2;
+}
+/* as de trás ficam prontas pra entrar, mas sem aparecer */
+.giro__item[data-pos="-2"]{transform:translateX(-190%) scale(.7);opacity:0;z-index:1}
+.giro__item[data-pos="2"]{transform:translateX(90%) scale(.7);opacity:0;z-index:1}
+
+.giro__controles{
+  display:flex;align-items:center;justify-content:center;
+  gap:14px;margin-top:clamp(20px,2.4vw,30px);
+}
+.giro__seta{
+  width:42px;height:42px;flex:none;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--linha);border-radius:999px;
+  background:transparent;color:var(--porcelana);
+  font-size:17px;cursor:pointer;
+  transition:border-color var(--transicao),background var(--transicao);
+}
+.giro__seta:hover{border-color:var(--azul-link);color:var(--azul-link)}
+.claro .giro__seta{border-color:rgba(36,40,44,.28);color:var(--grafite)}
+.claro .giro__seta:hover{border-color:var(--azul);color:var(--azul)}
+.giro__pausa{position:static}
+
+/* sem movimento: as três ficam paradas, nítidas e lado a lado */
+@media (prefers-reduced-motion:reduce){
+  .giro__item{transition:none}
+}
+@media (max-width:620px){
+  .giro{--giro-largura:min(62vw,300px)}
+  .giro__item[data-pos="-1"]{transform:translateX(-134%) scale(.78)}
+  .giro__item[data-pos="1"]{transform:translateX(34%) scale(.78)}
+}
+
 /* --- linha do tempo ----------------------------------------------------- */
 .tempo{display:grid;gap:0}
 .marco{
@@ -748,7 +823,7 @@ blockquote.cartao footer{margin-top:auto;padding-top:16px;color:var(--latao)}
 .azul .nota{color:var(--porcelana)}
 .azul .citacao{border-left-color:var(--porcelana)}
 .azul .citacao footer{color:rgba(242,237,227,.75)}
-.azul .figura figcaption{color:rgba(242,237,227,.8)}
+.azul .figura figcaption{color:rgba(242,237,227,.92)}
 .azul .passo{border-color:rgba(242,237,227,.26)}
 .azul .passo__n{color:var(--porcelana)}
 .azul .botao--linha{border-color:rgba(242,237,227,.5);color:var(--porcelana)}
@@ -798,3 +873,7 @@ blockquote.cartao footer{margin-top:auto;padding-top:16px;color:var(--latao)}
 .claro .selo-caso{color:#7D5F28;border-color:rgba(184,147,74,.6)}
 .azul .selo-caso{color:var(--porcelana);border-color:rgba(242,237,227,.5)}
 .azul .selo-caso::before{background:var(--porcelana)}
+.azul .giro__item figcaption{color:rgba(242,237,227,.92)}
+.azul .giro__seta{border-color:rgba(242,237,227,.45);color:var(--porcelana)}
+.azul .giro__seta:hover{border-color:var(--porcelana);background:rgba(242,237,227,.1)}
+.azul .giro__item img{background:rgba(13,42,74,.5)}

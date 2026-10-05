@@ -148,6 +148,83 @@
     alterna(parado);
   });
 
+  /* --- carrossel da reinauguração ----------------------------------------- */
+  /* Mesma regra do álbum: anda sozinho, mas tem botão de parar. A diferença é
+     que aqui as vizinhas continuam à vista, desfocadas, e a posição de cada
+     foto é dita por data-pos, que o CSS traduz em tamanho, desfoque e lugar. */
+  Array.prototype.forEach.call(document.querySelectorAll('.giro'), function (giro) {
+    var itens = giro.querySelectorAll('.giro__item');
+    if (itens.length < 2) return;
+
+    var palco = giro.querySelector('.giro__palco');
+    var pausa = giro.querySelector('.giro__pausa');
+    var rotulo = giro.querySelector('.album__rotulo');
+    var atual = 0;
+    var relogio = null;
+    var parado = quieto;
+    var INTERVALO = 4600;
+    var total = itens.length;
+
+    function mostra(i) {
+      atual = (i % total + total) % total;
+      Array.prototype.forEach.call(itens, function (item, j) {
+        /* distância da foto até o meio, pelo caminho mais curto do círculo */
+        var d = j - atual;
+        if (d > total / 2) d -= total;
+        if (d < -total / 2) d += total;
+        if (d < -2) d = -2;
+        if (d > 2) d = 2;
+        item.setAttribute('data-pos', d);
+        item.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+      });
+    }
+
+    function reinicia() {
+      clearInterval(relogio);
+      if (parado) return;
+      relogio = setInterval(function () { mostra(atual + 1); }, INTERVALO);
+    }
+
+    function alterna(novoEstado) {
+      parado = novoEstado;
+      pausa.setAttribute('aria-pressed', parado ? 'true' : 'false');
+      if (rotulo) rotulo.textContent = parado ? 'Continuar' : 'Pausar';
+      reinicia();
+    }
+
+    Array.prototype.forEach.call(giro.querySelectorAll('[data-giro]'), function (b) {
+      b.addEventListener('click', function () {
+        mostra(atual + (b.getAttribute('data-giro') === 'anterior' ? -1 : 1));
+        reinicia();
+      });
+    });
+    pausa.addEventListener('click', function () { alterna(!parado); });
+
+    /* clicar na foto de fora traz ela pro meio: é o que a pessoa espera */
+    Array.prototype.forEach.call(itens, function (item, j) {
+      item.addEventListener('click', function () {
+        if (item.getAttribute('data-pos') !== '0') { mostra(j); reinicia(); }
+      });
+    });
+
+    /* arrastar com o dedo, que no celular é como se passa foto */
+    var x0 = null;
+    palco.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    palco.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) { mostra(atual + (dx < 0 ? 1 : -1)); reinicia(); }
+      x0 = null;
+    }, { passive: true });
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) clearInterval(relogio); else reinicia();
+    });
+
+    mostra(0);
+    alterna(parado);
+  });
+
   /* --- ano do rodapé ----------------------------------------------------- */
   var anos = document.querySelectorAll('[data-ano]');
   Array.prototype.forEach.call(anos, function (el) {

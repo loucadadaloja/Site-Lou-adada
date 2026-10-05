@@ -31,7 +31,7 @@
 <link rel="preload" href="/assets/fontes/figtree-latin-300_700-normal.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/assets/fontes/fraunces-latin-400_700-normal.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/assets/fontes/fontes.css?v=4" />
-<link rel="stylesheet" href="/assets/css/site.css?v=10" />
+<link rel="stylesheet" href="/assets/css/site.css?v=11" />
 
 <script type="application/ld+json">
 {
@@ -346,6 +346,69 @@
     </div>
   </section>
 
+  <!-- A REINAUGURAÇÃO ---------------------------------------------------- -->
+  <!-- TROCAR AS FOTOS: estas três são do dia da reinauguração, mas são as que
+       eu já tinha. Quando chegarem as do coquetel e do pessoal se abraçando,
+       é só trocar o src, o alt e a legenda de cada figure. O carrossel não
+       precisa de ajuste: ele conta quantos figures existem e se vira. -->
+  <section class="secao azul">
+    <div class="envelope">
+      <div class="surge">
+        <span class="sobrelinha">A reinauguração</span>
+        <h2>O dia em que a casa<br />reabriu a porta.</h2>
+        <p class="linha-fina mt-p">
+          Teve coquetel, teve abraço e teve a casa inteira na porta. São as fotos
+          do dia, do jeito que o dia foi.
+        </p>
+      </div>
+    </div>
+
+    <div class="giro surge mt-m">
+      <div class="giro__palco">
+        <figure class="giro__item">
+          <img src="/assets/img/familia-salao.webp"
+               alt="A família da Louçadada reunida no salão da loja no dia da reinauguração, entre árvores montadas e lanternas de teto"
+               width="900" height="1350" loading="lazy" decoding="async" />
+          <figcaption>A família no salão, com a loja montada em volta.</figcaption>
+        </figure>
+
+        <figure class="giro__item">
+          <img src="/assets/img/arvore-natal.webp"
+               alt="Uma das sócias diante da árvore vermelha montada no salão, coberta de bolas e flores"
+               width="900" height="1350" loading="lazy" decoding="async" />
+          <figcaption>A árvore vermelha do salão, montada à mão de cima a baixo.</figcaption>
+        </figure>
+
+        <figure class="giro__item">
+          <img src="/assets/img/cristais-natal.webp"
+               alt="Cristais, anjos de vidro e um vaso com galhos de pinheiro montados sobre um carrinho dentro da loja"
+               width="900" height="1350" loading="lazy" decoding="async" />
+          <figcaption>O carrinho de cristais montado para o dia.</figcaption>
+        </figure>
+
+        <figure class="giro__item">
+          <img src="/assets/img/sacola-balcao-nova.webp"
+               alt="A sacola branca da Louçadada em cima do balcão, com fita azul e o selo da casa impresso na lateral"
+               width="900" height="1350" loading="lazy" decoding="async" />
+          <figcaption>A sacola da casa, com a fita azul e o selo na lateral.</figcaption>
+        </figure>
+      </div>
+
+      <div class="giro__controles envelope">
+        <button class="giro__seta" type="button" data-giro="anterior" aria-label="Foto anterior">
+          <span aria-hidden="true">&#8592;</span>
+        </button>
+        <button class="album__pausa giro__pausa" type="button" aria-pressed="false">
+          <span class="album__icone" aria-hidden="true"></span>
+          <span class="album__rotulo">Pausar</span>
+        </button>
+        <button class="giro__seta" type="button" data-giro="proxima" aria-label="Próxima foto">
+          <span aria-hidden="true">&#8594;</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- ACERVO DA FAMÍLIA -------------------------------------------------- -->
   <section class="secao">
     <div class="envelope">
@@ -354,7 +417,7 @@
         <h2>O que a gaveta guardou.</h2>
         <p class="linha-fina mt-p">
           Boa parte desses 60 anos só existe em papel, nas caixas de foto da
-          família. Estas cinco contam a mudança do letreiro, a mudança da rua e a
+          família. Estas quatro contam a mudança do letreiro, a mudança da rua e a
           mudança de quem está no salão.
         </p>
       </div>
@@ -365,10 +428,6 @@
         <figure class="figura">
           <img src="/assets/img/desfile-letreiro.webp" alt="Fotografia antiga de um desfile passando pela rua, com gente na calçada e o letreiro Louça Dada acima da loja" width="900" height="1350" loading="lazy" decoding="async" />
           <figcaption>O letreiro do tempo em que a loja assinava Louça Dada, com o desfile passando na porta.</figcaption>
-        </figure>
-        <figure class="figura">
-          <img src="/assets/img/rua-festa.webp" alt="Fotografia antiga da rua do centro de Araguari em dia de festa, tomada por gente e bandeirinhas entre as fachadas" width="1600" height="856" loading="lazy" decoding="async" />
-          <figcaption>Dia de festa no centro: o comércio da rua trabalhava com a cidade inteira na calçada.</figcaption>
         </figure>
         <figure class="figura">
           <img src="/assets/img/fachada-transicao.webp" alt="Operário com martelo na mão sobre o letreiro antigo, no meio da obra de troca da fachada da loja" width="900" height="1188" loading="lazy" decoding="async" />
@@ -510,6 +569,6 @@
   </div>
 </footer>
 
-<script src="/assets/js/site.js?v=10" defer></script>
+<script src="/assets/js/site.js?v=11" defer></script>
 </body>
 </html>
