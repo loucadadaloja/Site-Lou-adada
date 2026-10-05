@@ -12,7 +12,7 @@ publicar é dar endereço para quem não precisa ter.
 
 Sai um loucadada-site.zip pronto para o public_html da hospedagem.
 """
-import os, sys, zipfile
+import glob, os, re, sys, zipfile
 
 RAIZ = os.path.dirname(os.path.abspath(__file__))
 SAIDA = os.path.join(RAIZ, 'loucadada-site.zip')
@@ -20,9 +20,22 @@ SAIDA = os.path.join(RAIZ, 'loucadada-site.zip')
 FORA = {'.git', 'docs', '.github', 'node_modules'}
 ARQ_FORA = {'README.md', '.gitignore', 'loucadada-site.zip'}
 
+def fotos_em_uso():
+    """Só sobe foto que alguma página pede. A pasta assets/img guarda o acervo
+       inteiro da marca, e mandar o acervo junto é empurrar megabyte de imagem
+       que ninguém abre na conexão de quem entra no site."""
+    pedidas = set()
+    for html in glob.glob(os.path.join(RAIZ, '*.html')) + \
+                glob.glob(os.path.join(RAIZ, '*', '*.html')):
+        with open(html, encoding='utf-8') as f:
+            pedidas.update(re.findall(r'/assets/img/([^"\'/)\s]+)', f.read()))
+    return pedidas
+
 def main():
     if os.path.exists(SAIDA):
         os.remove(SAIDA)
+    usadas = fotos_em_uso()
+    deixadas = 0
     n, peso = 0, 0
     htaccess = False
     with zipfile.ZipFile(SAIDA, 'w', zipfile.ZIP_DEFLATED) as z:
@@ -33,6 +46,9 @@ def main():
                     continue
                 caminho = os.path.join(raiz, a)
                 rel = os.path.relpath(caminho, RAIZ)
+                if rel.startswith('assets/img/') and a not in usadas:
+                    deixadas += 1
+                    continue
                 z.write(caminho, rel)
                 n += 1
                 peso += os.path.getsize(caminho)
@@ -41,6 +57,9 @@ def main():
 
     print('%d arquivos · %.1f MB soltos · %.1f MB zipado'
           % (n, peso/1e6, os.path.getsize(SAIDA)/1e6))
+    if deixadas:
+        print('%d fotos do acervo ficaram de fora: nenhuma página pede por elas'
+              % deixadas)
     print('.htaccess dentro do pacote: %s' % ('sim' if htaccess else 'NÃO — confira'))
     print('\nPronto: %s' % SAIDA)
     print('Sobe o conteúdo dele na pasta public_html da hospedagem.')
