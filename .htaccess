@@ -3,11 +3,23 @@
 # lá as URLs limpas e o cache já vêm resolvidos por padrão.
 
 # --- HTTPS e domínio único ---------------------------------------------------
-# Descomente as três linhas abaixo depois que o certificado SSL estiver ativo.
+# Um site, um endereço. Sem isto o site responde em quatro endereços
+# diferentes (com e sem www, com e sem https) e o Google trata cada um como
+# um site separado, dividindo a força de todos eles.
+#
+# Descomente o bloco depois que o cadeado estiver aparecendo no navegador.
+# Ele resolve as duas coisas num salto só: joga tudo para
+# https://loucadada.com, sem www.
+#
+# Se o painel da hospedagem já tiver um botão de "Forçar HTTPS" ligado,
+# use só um dos dois. Os dois juntos fazem o navegador pular duas vezes
+# antes de abrir a página, e isso aparece na conta do visitante.
+#
 # <IfModule mod_rewrite.c>
 #   RewriteEngine On
-#   RewriteCond %{HTTPS} off
-#   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#   RewriteCond %{HTTPS} off [OR]
+#   RewriteCond %{HTTP_HOST} ^www\. [NC]
+#   RewriteRule ^(.*)$ https://loucadada.com/$1 [L,R=301]
 # </IfModule>
 
 # --- página de erro ----------------------------------------------------------
