@@ -121,11 +121,32 @@
   @media (hover:hover){
     .caminho--cheio:hover{background:var(--azul-vivo);border-color:var(--azul-vivo)}
   }
-  /* o VIP é o convite: contorno de latão, que na marca é o acento de joia */
-  .caminho--vip{border-color:rgba(184,147,74,.75)}
-  .caminho--vip .caminho__icone{color:var(--latao-claro)}
+  /* O VIP é a joia da página: latão escovado, que na identidade é o acento
+     de 5% reservado pro que merece destaque. O degradê é a luz passando no
+     metal, não enfeite: ele dá o que o dourado chapado não dá, que é parecer
+     material em vez de cor.
+     A tinta é escura porque clara reprova: porcelana sobre latão dá 2,46:1.
+     Grafite sobre o ponto mais escuro do degradê dá 5,8:1 e sobre o brilho
+     dá quase 9:1, então lê em qualquer pedaço do botão. */
+  .caminho--vip{
+    background:linear-gradient(115deg,
+      #BE9A52 0%, #CDAA60 18%, #E2C98A 44%, #D2B069 58%, #C29C55 82%, #BA9450 100%);
+    border-color:rgba(28,31,34,.22);
+    color:var(--grafite-fundo);
+    box-shadow:0 1px 0 rgba(255,255,255,.3) inset,
+               0 6px 18px -8px rgba(184,147,74,.55);
+  }
+  .caminho--vip .caminho__icone,
+  .caminho--vip .caminho__seta{color:var(--grafite-fundo)}
+  .caminho--vip .caminho__seta{opacity:.55}
+  .caminho--vip .caminho__apoio{color:var(--grafite-fundo)}
+  .caminho--vip .caminho__titulo{font-weight:700}
   @media (hover:hover){
-    .caminho--vip:hover{border-color:var(--latao-claro);background:rgba(44,49,54,.9)}
+    .caminho--vip:hover{
+      border-color:rgba(28,31,34,.3);
+      box-shadow:0 1px 0 rgba(255,255,255,.42) inset,
+                 0 8px 22px -8px rgba(203,169,95,.7);
+    }
   }
 
   /* --- pé --------------------------------------------------------------- */
