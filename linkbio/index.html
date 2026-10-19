@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Louçadada · Presentes e Decoração em Araguari</title>
+<meta name="description" content="Os caminhos da Louçadada num lugar só: WhatsApp da loja, grupo VIP, site, endereço e horário. Rua Rui Barbosa, 54, centro de Araguari." />
+
+<!-- Esta página é o link da bio do Instagram, não é página de busca. O noindex
+     existe pra ela não disputar o Google com a home, que diz a mesma coisa com
+     mais conteúdo. Por isso também fica fora do sitemap.xml. -->
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://loucadada.com/" />
+<meta name="theme-color" content="#1C1F22" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Louçadada" />
+<meta property="og:title" content="Louçadada · Presentes e Decoração em Araguari" />
+<meta property="og:description" content="WhatsApp, grupo VIP, site e o caminho até a porta. Rua Rui Barbosa, 54, centro de Araguari, desde 1966." />
+<meta property="og:url" content="https://loucadada.com/linkbio/" />
+<meta property="og:image" content="https://loucadada.com/og.jpg?v=2" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<link rel="preload" href="/assets/fontes/figtree-latin-300_700-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fontes/fraunces-latin-400_700-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/assets/fontes/fontes.css?v=4" />
+
+<!-- O estilo vem inteiro aqui dentro de propósito. Esta é a página que a
+     pessoa abre no 4G, saindo do Instagram, com pressa: uma requisição a
+     menos é meio segundo a menos de espera. O site.css serve as sete páginas
+     do site e não vale carregar inteiro por causa de uma tela de botões. -->
+<style>
+  :root{
+    --grafite:#24282C; --grafite-fundo:#1C1F22; --grafite-alto:#2C3136;
+    --azul:#1F66AC; --azul-vivo:#2E7FCE; --azul-link:#5AA0E8;
+    --latao:#B8934A; --latao-claro:#CBA95F;
+    --porcelana:#F2EDE3; --tinta-suave:#C3BCAE; --tinta-fraca:#969084;
+    --linha:rgba(242,237,227,.16);
+    --serifa:"Bookmania","Fraunces",Georgia,serif;
+    --sans:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    --caneta:"Caveat",cursive;
+    --transicao:.22s ease;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  [hidden]{display:none !important}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--grafite-fundo); color:var(--porcelana);
+    font-family:var(--sans); font-size:16px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    /* a faixa de luz atrás do laço, que dá fundo de vitrine acesa */
+    background-image:radial-gradient(120% 52% at 50% 0%, #2A3036 0%, #1C1F22 62%);
+    background-repeat:no-repeat;
+    min-height:100svh;
+  }
+  .fora{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  .folha{
+    width:100%; max-width:440px; margin:0 auto;
+    padding:clamp(30px,8vw,46px) 20px calc(34px + env(safe-area-inset-bottom,0px));
+    display:flex; flex-direction:column; gap:clamp(22px,5vw,30px);
+  }
+
+  /* --- marca ---------------------------------------------------------- */
+  .marca{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+  .marca__laco{width:74px;color:var(--azul-vivo);display:block}
+  .marca__nome{width:min(214px,56vw);color:var(--porcelana);display:block}
+  .marca__linha{
+    font-size:11px; letter-spacing:.17em; text-transform:uppercase;
+    font-weight:650; color:var(--tinta-suave); margin:0; max-width:17em;
+  }
+  .marca__linha span{display:block}
+
+  /* --- aberto agora ---------------------------------------------------- */
+  .agora{
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    font-size:13.5px;color:var(--tinta-suave);margin:0;min-height:20px;
+  }
+  .agora__bola{
+    width:8px;height:8px;border-radius:50%;flex:none;background:var(--tinta-fraca);
+  }
+  .agora[data-aberta="sim"] .agora__bola{background:#5FBF7A;box-shadow:0 0 0 4px rgba(95,191,122,.18)}
+  .agora[data-aberta="nao"] .agora__bola{background:var(--latao)}
+  .agora b{color:var(--porcelana);font-weight:600}
+
+  /* --- botões ---------------------------------------------------------- */
+  .caminhos{display:flex;flex-direction:column;gap:12px}
+  .caminho{
+    display:flex;align-items:center;gap:15px;
+    min-height:66px; padding:14px 18px;
+    border:1px solid var(--linha); border-radius:16px;
+    background:rgba(44,49,54,.55);
+    color:var(--porcelana); text-decoration:none;
+    transition:border-color var(--transicao),background var(--transicao),transform .14s;
+  }
+  .caminho:active{transform:scale(.985)}
+  @media (hover:hover){
+    .caminho:hover{border-color:var(--azul-link);background:rgba(44,49,54,.9)}
+  }
+  .caminho__icone{width:26px;height:26px;flex:none;color:var(--azul-link)}
+  .caminho__texto{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .caminho__titulo{font-size:16.5px;font-weight:650;letter-spacing:.005em}
+  .caminho__apoio{font-size:13px;color:var(--tinta-suave);line-height:1.35}
+  .caminho__seta{margin-left:auto;flex:none;color:var(--tinta-fraca);font-size:19px;line-height:1}
+
+  /* o WhatsApp é o que a maioria vem buscar: ele é o único cheio */
+  .caminho--cheio{
+    background:var(--azul); border-color:var(--azul);
+  }
+  .caminho--cheio .caminho__icone,
+  .caminho--cheio .caminho__seta{color:var(--porcelana)}
+  .caminho--cheio .caminho__apoio{color:rgba(242,237,227,.88)}
+  @media (hover:hover){
+    .caminho--cheio:hover{background:var(--azul-vivo);border-color:var(--azul-vivo)}
+  }
+  /* o VIP é o convite: contorno de latão, que na marca é o acento de joia */
+  .caminho--vip{border-color:rgba(184,147,74,.75)}
+  .caminho--vip .caminho__icone{color:var(--latao-claro)}
+  @media (hover:hover){
+    .caminho--vip:hover{border-color:var(--latao-claro);background:rgba(44,49,54,.9)}
+  }
+
+  /* --- pé --------------------------------------------------------------- */
+  .pe{
+    border-top:1px solid rgba(242,237,227,.1);
+    padding-top:24px; display:flex; flex-direction:column; gap:16px;
+    font-size:13.5px; color:var(--tinta-suave); line-height:1.55;
+  }
+  .pe dl{margin:0;display:flex;flex-direction:column;gap:13px}
+  .pe dt{
+    font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;
+    font-weight:650;color:var(--latao-claro);margin-bottom:3px;
+  }
+  .pe dd{margin:0}
+  .pe a{color:var(--porcelana);text-decoration:none;border-bottom:1px solid var(--linha)}
+  @media (hover:hover){.pe a:hover{border-color:var(--azul-link)}}
+  .pe__nota{font-family:var(--caneta);font-size:19px;color:var(--latao-claro);line-height:1.2;margin:0}
+  .pe__fim{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    font-size:11.5px;color:var(--tinta-fraca);
+  }
+  .pe__fim a{color:var(--tinta-fraca);border:0}
+  .pe__insta{display:inline-flex;align-items:center;gap:7px}
+  .pe__insta svg{width:15px;height:15px;flex:none}
+
+  :focus-visible{
+    outline:2px solid var(--latao-claro);outline-offset:3px;
+    box-shadow:0 0 0 5px var(--grafite-fundo);border-radius:4px;
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+
+<svg class="fora" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="laco" viewBox="0 0 1080 582.32"><path d="M893.17,372.02c-58.14,15.87-131.89,16.3-190.38,2.32-31.32-7.49-60.39-19.02-87.2-36.39-13.07-8.47-24.76-17.18-35.02-29.49,36.34,15.32,74.96,17.38,113.34,12.21,41.78-5.63,81.86-16.86,119.99-34.56,30.7-14.25,67.03-36.78,79.9-67.64,9.59-23,1.94-46.54-18.32-60.27-14.14-9.58-29.8-14.99-47.24-17.63-58.6-8.9-118.88,4.42-171.42,31.53-35.02,17.92-65.8,40.87-92.23,69.97-1.22-.48-2.62-.94-4.13-1.36-13.35-3.76-27.55-3.76-40.9,0-1.51.42-2.91.88-4.13,1.36-26.43-29.1-57.21-52.05-92.23-69.97-52.54-27.11-112.83-40.43-171.42-31.53-17.44,2.65-33.1,8.05-47.24,17.63-20.26,13.74-27.92,37.27-18.32,60.27,12.87,30.86,49.2,53.39,79.9,67.64,38.13,17.7,78.21,28.93,119.99,34.56,38.38,5.17,77,3.11,113.34-12.21-10.27,12.3-21.95,21.02-35.02,29.49-26.81,17.37-55.88,28.9-87.2,36.39-58.48,13.98-132.24,13.54-190.38-2.32-2.05-.56-4.09.68-4.46,2.36-.25,1.14.21,3.12,2.08,4.06,21.92,10.98,43.88,20.18,67.38,29.32l-25.42,16.32-24.28,14.12c-1.46.85-1.68,3.1-1.05,4.38.51,1.03,1.64,2.01,3.82,1.91,45.13-2.08,89.01-7.76,133.08-18.09,71.55-16.77,147.76-51.64,193.98-109.85,1.07-.1,2.6-.1,4.03-.07,2.67.05,5.34.05,8.01,0,1.43-.03,2.96-.02,4.03.07,46.22,58.21,122.43,93.08,193.98,109.85,44.07,10.33,87.94,16.01,133.08,18.09,2.17.1,3.31-.89,3.82-1.91.63-1.28.41-3.53-1.05-4.38l-24.28-14.12-25.42-16.32c23.5-9.14,45.46-18.34,67.38-29.32,1.87-.94,2.33-2.92,2.08-4.06-.37-1.68-2.41-2.92-4.46-2.36ZM744.29,187.37c21.28-1.94,52.23.68,67.33,13.47,15.63,13.24,6.81,34.24-7.06,49.13-46.36,49.81-154.86,76.95-219.06,50.19,12.61-14.25,12.23-32.12-.57-45.95,45.09-38.13,100.87-61.52,159.36-66.84ZM494.5,300.16c-64.21,26.76-172.71-.38-219.06-50.19-13.86-14.9-22.69-35.89-7.06-49.13,15.1-12.79,46.05-15.41,67.33-13.47,58.49,5.32,114.27,28.72,159.36,66.84-12.8,13.83-13.18,31.7-.57,45.95Z"/></symbol>
+  <symbol id="logotipo" viewBox="0 0 1080 267"><path d="M85.02,164.55c18.96,0,33.66-10.62,45.1-25l4.58,2.78-15.85,31.54H35.34v-5.56c11.77-.82,14.38-1.8,14.38-12.75v-77.78c0-10.95-2.61-12.09-14.38-12.91v-5.39h51.31v5.39c-11.77.82-14.38,1.96-14.38,12.91v81.87c0,3.1,1.96,4.9,4.9,4.9h7.84Z"/><path d="M249.73,116.67c0,35.3-21.57,59.64-56.87,59.64s-56.87-24.35-56.87-59.64,21.41-59.64,56.87-59.64,56.87,24.35,56.87,59.64ZM223.84,107.32c-8.55-28.31-22.35-46.34-45.66-39.3-23.46,7.08-24.84,29.69-16.29,58,8.5,28.16,22.19,46.38,45.66,39.3,23.31-7.04,24.79-29.84,16.29-58Z"/><path d="M291.56,139.87c0,18.96,13.24,26.8,29.25,26.8s28.43-9.31,28.43-28.11l-6.03-60.79c0-10.95-2.61-12.09-14.38-12.91v-5.39h39.22v5.39c-11.77.82-14.38,1.96-14.38,12.91l6.03,60.95c0,22.71-15.36,37.58-43.14,37.58-29.9,0-47.55-12.75-47.55-37.75v-60.79c0-10.95-2.61-12.09-14.38-12.91v-5.39h51.31v5.39c-11.93.82-14.38,1.96-14.38,12.91v62.09Z"/><path d="M475.93,143.14c-6.86,19.12-20.59,31.54-43.14,33.01l-3.6,8.01c1.31-.49,2.45-.65,4.41-.65,7.35,0,12.58,3.76,12.58,10.46,0,8.01-8.5,16.01-22.22,16.01-10.78,0-18.3-4.9-18.3-10.46,0-2.78,2.29-5.39,5.23-5.39,3.92,0,5.07,2.12,6.37,4.58,1.14,2.45,2.61,5.23,7.84,5.23,5.72,0,9.15-3.1,9.15-7.68,0-3.1-2.61-5.23-6.05-5.23-2.45,0-4.25.65-5.88,2.12l-4.57-2.12,6.37-14.87c-30.88-1.8-51.8-25.65-51.8-59.48s22.71-59.64,55.72-59.64c12.42,0,21.08,3.1,27.62,7.68l2.29-5.23h6.37l8.99,32.35-5.23,1.63c-8.66-16.67-21.9-27.62-38.07-27.62-24.02,0-33.17,21.24-33.17,50.82s9.15,50.82,33.17,50.82c17.98,0,32.19-11.76,36.93-27.45l8.99,3.1Z"/><path d="M579.34,157.03c2.94,7.68,6.05,10.46,12.91,11.28v5.56h-47.22v-5.56c10.95-.82,13.56-2.78,10.79-9.97l-6.86-17.81h-42.65l-6.86,17.81c-2.61,6.7,1.31,9.15,12.42,9.97v5.56h-35.79v-5.56c7.35-.82,10.95-3.6,13.73-10.79l37.42-98.04h14.71l37.42,97.55ZM509.73,131.21h35.62l-17.97-46.24-17.65,46.24Z"/><path d="M592.17,173.86v-5.56c11.77-.82,14.38-1.8,14.38-12.75v-77.78c0-10.95-2.61-12.09-14.38-12.91v-5.39h53.11c39.38,0,62.26,19.94,62.26,57.19s-23.2,57.19-62.42,57.19h-52.94ZM634,68.63c-2.94,0-4.9,1.96-4.9,4.9v86.11c0,3.1,1.96,4.9,4.9,4.9h11.11c22.22,0,37.91-10.95,37.91-47.88s-15.36-48.04-37.75-48.04h-11.28Z"/><path d="M807.13,157.03c2.94,7.68,6.05,10.46,12.91,11.28v5.56h-47.23v-5.56c10.95-.82,13.56-2.78,10.79-9.97l-6.86-17.81h-42.65l-6.86,17.81c-2.61,6.7,1.31,9.15,12.42,9.97v5.56h-35.79v-5.56c7.35-.82,10.95-3.6,13.72-10.79l37.42-98.04h14.71l37.42,97.55ZM737.52,131.21h35.62l-17.97-46.24-17.65,46.24Z"/><path d="M819.95,173.86v-5.56c11.77-.82,14.38-1.8,14.38-12.75v-77.78c0-10.95-2.61-12.09-14.38-12.91v-5.39h53.11c39.38,0,62.26,19.94,62.26,57.19s-23.2,57.19-62.42,57.19h-52.94ZM861.79,68.63c-2.94,0-4.9,1.96-4.9,4.9v86.11c0,3.1,1.96,4.9,4.9,4.9h11.11c22.22,0,37.91-10.95,37.91-47.88s-15.36-48.04-37.75-48.04h-11.27Z"/><path d="M1031.75,157.03c2.94,7.68,6.05,10.46,12.91,11.28v5.56h-47.22v-5.56c10.95-.82,13.56-2.78,10.78-9.97l-6.86-17.81h-42.65l-6.86,17.81c-2.61,6.7,1.31,9.15,12.42,9.97v5.56h-35.79v-5.56c7.35-.82,10.95-3.6,13.73-10.79l37.42-98.04h14.71l37.42,97.55ZM962.14,131.21h35.62l-17.97-46.24-17.65,46.24Z"/></symbol>
+  <symbol id="whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+  <symbol id="instagram" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="estrela" viewBox="0 0 24 24"><path d="M12 2.6l2.6 6.1 6.6.6-5 4.3 1.5 6.4-5.7-3.4-5.7 3.4 1.5-6.4-5-4.3 6.6-.6z"/></symbol>
+  <symbol id="loja" viewBox="0 0 24 24"><path d="M3.6 3h16.8l1.4 5.1a3.1 3.1 0 0 1-5.9 1.6 3.1 3.1 0 0 1-5.9 0 3.1 3.1 0 0 1-5.9-1.6zM5 11.4V21h5.4v-5.6h3.2V21H19v-9.6"/></symbol>
+</svg>
+
+<main class="folha">
+
+  <header class="marca">
+    <svg class="marca__laco" viewBox="0 0 1080 582.32" fill="currentColor" aria-hidden="true"><use href="#laco"></use></svg>
+    <svg class="marca__nome" viewBox="0 0 1080 267" fill="currentColor" role="img" aria-label="Louçadada"><use href="#logotipo"></use></svg>
+    <p class="marca__linha"><span>Presentes &amp; Decoração</span><span>Araguari desde 1966</span></p>
+  </header>
+
+  <p class="agora" id="agora" hidden>
+    <span class="agora__bola" aria-hidden="true"></span>
+    <span id="agora-texto"></span>
+  </p>
+
+  <nav class="caminhos" aria-label="Onde falar com a Louçadada">
+
+    <a class="caminho caminho--cheio" href="https://wa.me/5534998703531?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20e%20gostaria%20de%20falar%20com%20uma%20atendente." rel="noopener">
+      <svg class="caminho__icone" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#whatsapp"></use></svg>
+      <span class="caminho__texto">
+        <span class="caminho__titulo">Falar com uma atendente</span>
+        <span class="caminho__apoio">A casa responde com o preço na mesma mensagem</span>
+      </span>
+      <span class="caminho__seta" aria-hidden="true">›</span>
+    </a>
+
+    <!-- TROCAR O LINK DO GRUPO VIP: cole aqui o convite do WhatsApp, aquele que
+         começa com https://chat.whatsapp.com/. Enquanto estiver assim, o botão
+         não aparece na página: o script abaixo esconde ele sozinho, porque
+         botão que não leva a lugar nenhum é pior do que botão nenhum. -->
+    <a class="caminho caminho--vip" id="vip" href="COLE-AQUI-O-LINK-DO-GRUPO-VIP" rel="noopener">
+      <svg class="caminho__icone" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#estrela"></use></svg>
+      <span class="caminho__texto">
+        <span class="caminho__titulo">Entrar no grupo VIP</span>
+        <span class="caminho__apoio">A novidade da feira chega ali antes da vitrine</span>
+      </span>
+      <span class="caminho__seta" aria-hidden="true">›</span>
+    </a>
+
+    <a class="caminho" href="/">
+      <svg class="caminho__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#loja"></use></svg>
+      <span class="caminho__texto">
+        <span class="caminho__titulo">Site oficial</span>
+        <span class="caminho__apoio">A história da casa e como a gente monta na sua</span>
+      </span>
+      <span class="caminho__seta" aria-hidden="true">›</span>
+    </a>
+
+    <a class="caminho" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Rui+Barbosa%2C+54+-+Centro%2C+Araguari+-+MG%2C+38440-222" target="_blank" rel="noopener">
+      <svg class="caminho__icone" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#pin"></use></svg>
+      <span class="caminho__texto">
+        <span class="caminho__titulo">Como chegar na loja</span>
+        <span class="caminho__apoio">Rua Rui Barbosa, 54 · Centro de Araguari</span>
+      </span>
+      <span class="caminho__seta" aria-hidden="true">›</span>
+    </a>
+
+  </nav>
+
+  <footer class="pe">
+    <dl>
+      <div>
+        <dt>Endereço</dt>
+        <dd>Rua Rui Barbosa, 54 · Centro<br />Araguari, Minas Gerais · 38440-222</dd>
+      </div>
+      <div>
+        <dt>Horário</dt>
+        <dd>Segunda a sexta, das 8h30 às 18h<br />Sábado, das 8h30 às 13h</dd>
+      </div>
+      <div>
+        <dt>Telefone</dt>
+        <dd><a href="tel:+553432413531">(34) 3241-3531</a></dd>
+      </div>
+    </dl>
+
+    <p class="pe__nota">pode entrar só pra olhar</p>
+
+    <p class="pe__fim">
+      <a class="pe__insta" href="https://www.instagram.com/loucadada/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#instagram"></use></svg>@loucadada
+      </a>
+      <a href="https://fortunatoestudio.com/" target="_blank" rel="noopener">Marca e site por Fortunato Estúdio</a>
+    </p>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  /* --- o botão do VIP só existe se tiver para onde levar ------------------ */
+  var vip = document.getElementById('vip');
+  if (vip && vip.getAttribute('href').indexOf('chat.whatsapp.com') === -1) {
+    vip.hidden = true;
+  }
+
+  /* --- aberta agora ou não ----------------------------------------------
+     A conta é feita no fuso de Araguari, não no do aparelho: quem abre a
+     página de outro estado ou viajando veria o horário errado. O horário
+     mora aqui e no schema do site; mudou num lugar, muda no outro. */
+  var HORARIO = {
+    1: [510, 1080], 2: [510, 1080], 3: [510, 1080], 4: [510, 1080], 5: [510, 1080],
+    6: [510, 780],
+    0: null
+  };
+  var DIAS = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+
+  function relogio() {
+    var f = new Intl.DateTimeFormat('pt-BR', {
+      timeZone: 'America/Sao_Paulo', weekday: 'short', hour: '2-digit',
+      minute: '2-digit', hour12: false
+    });
+    var p = {};
+    f.formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
+    var mapa = { 'dom': 0, 'seg': 1, 'ter': 2, 'qua': 3, 'qui': 4, 'sex': 5, 'sáb': 6 };
+    var dia = mapa[p.weekday.toLowerCase().replace('.', '').slice(0, 3)];
+    return { dia: dia, minuto: (+p.hour) * 60 + (+p.minute) };
+  }
+
+  function hhmm(m) {
+    var h = Math.floor(m / 60), mi = m % 60;
+    return mi ? h + 'h' + (mi < 10 ? '0' : '') + mi : h + 'h';
+  }
+
+  function proximaAbertura(dia) {
+    for (var i = 1; i <= 7; i++) {
+      var d = (dia + i) % 7;
+      if (HORARIO[d]) {
+        return (i === 1 ? 'amanhã' : DIAS[d]) + ' às ' + hhmm(HORARIO[d][0]);
+      }
+    }
+    return '';
+  }
+
+  /* separado de propósito: assim dá pra testar a regra em todas as horas da
+     semana sem precisar mexer no relógio do computador */
+  function avaliar(dia, minuto) {
+    var hoje = HORARIO[dia];
+    if (hoje && minuto >= hoje[0] && minuto < hoje[1]) {
+      return { aberta: 'sim', texto: '<b>Aberta agora</b> · até as ' + hhmm(hoje[1]) };
+    }
+    if (hoje && minuto < hoje[0]) {
+      return { aberta: 'nao', texto: '<b>Fechada</b> · abre hoje às ' + hhmm(hoje[0]) };
+    }
+    return { aberta: 'nao', texto: '<b>Fechada</b> · abre ' + proximaAbertura(dia) };
+  }
+  window.__avaliar = avaliar;
+
+  try {
+    var agora = relogio();
+    var r = avaliar(agora.dia, agora.minuto);
+    var caixa = document.getElementById('agora');
+    caixa.setAttribute('data-aberta', r.aberta);
+    document.getElementById('agora-texto').innerHTML = r.texto;
+    caixa.hidden = false;
+  } catch (e) {
+    /* sem o aviso a página continua inteira: ele é um extra, não o conteúdo */
+  }
+})();
+</script>
+
+</body>
+</html>
