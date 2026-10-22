@@ -105,7 +105,8 @@
   @media (hover:hover){
     .caminho:hover{border-color:var(--azul-link);background:rgba(44,49,54,.9)}
   }
-  .caminho__icone{width:26px;height:26px;flex:none;color:var(--azul-link)}
+  .caminho__icone--laco{transform:scale(1.42)}
+    .caminho__icone{width:26px;height:26px;flex:none;color:var(--azul-link)}
   .caminho__texto{display:flex;flex-direction:column;gap:2px;min-width:0}
   .caminho__titulo{font-size:16.5px;font-weight:650;letter-spacing:.005em}
   .caminho__apoio{font-size:13px;color:var(--tinta-suave);line-height:1.35}
@@ -195,7 +196,7 @@
 
   <header class="marca">
     <svg class="marca__laco" viewBox="0 0 1080 582.32" fill="currentColor" aria-hidden="true"><use href="#laco"></use></svg>
-    <svg class="marca__nome" viewBox="0 0 1080 267" fill="currentColor" role="img" aria-label="Louçadada"><use href="#logotipo"></use></svg>
+    <h1 class="marca__nome"><svg viewBox="0 0 1080 267" fill="currentColor" role="img" aria-label="Louçadada"><use href="#logotipo"></use></svg></h1>
     <p class="marca__linha"><span>Presentes &amp; Decoração</span><span>Araguari desde 1966</span></p>
   </header>
 
@@ -215,6 +216,17 @@
       <span class="caminho__texto">
         <span class="caminho__titulo">Entre no grupo VIP</span>
         <span class="caminho__apoio">Você vê a peça nova antes de ela chegar na loja</span>
+      </span>
+      <span class="caminho__seta" aria-hidden="true">›</span>
+    </a>
+
+    <!-- A lista de noivas entra aqui porque o Instagram é onde a noiva está de
+         verdade. Pra tirar ou mudar de lugar, é só mover este bloco inteiro. -->
+    <a class="caminho" href="/lista-de-noivas/">
+      <svg class="caminho__icone caminho__icone--laco" viewBox="0 0 1080 582.32" fill="currentColor" aria-hidden="true"><use href="#laco"></use></svg>
+      <span class="caminho__texto">
+        <span class="caminho__titulo">Lista de noivas</span>
+        <span class="caminho__apoio">A lista de casamento de Araguari começou aqui, em 1966</span>
       </span>
       <span class="caminho__seta" aria-hidden="true">›</span>
     </a>

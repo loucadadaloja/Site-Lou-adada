@@ -101,3 +101,9 @@ ErrorDocument 404 /404.html
 # Regra de ouro do playbook: URL nunca morre, ela redireciona.
 # Quando alguma URL mudar, o 301 entra aqui, nesta ordem:
 #   Redirect 301 /url-antiga/ https://loucadada.com/url-nova/
+
+# O atalho que cabe numa tag de convite e num QR Code.
+# loucadada.com/lista  ->  /lista-de-noivas/
+RedirectMatch 301 ^/lista/?$ https://loucadada.com/lista-de-noivas/
+RedirectMatch 301 ^/noivas/?$ https://loucadada.com/lista-de-noivas/
+RedirectMatch 301 ^/lista-de-casamento/?$ https://loucadada.com/lista-de-noivas/

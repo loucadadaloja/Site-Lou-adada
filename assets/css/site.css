@@ -781,6 +781,19 @@ a.cartao:hover{border-color:var(--azul-link);transform:translateY(-3px)}
 
 /* depoimento usa o mesmo cartão, só com a fonte da citação no rodapé */
 blockquote.cartao p{font-family:var(--serifa);font-size:17.5px;line-height:1.5;color:var(--tinta)}
+
+/* Listas dentro de texto corrido. A casa não tinha nenhuma até a página da lista
+   de noivas, onde promessa em linha solta lê melhor que parágrafo. O marcador é
+   o mesmo tracinho de latão que a memória da equipe já usa, pra não entrar
+   bolinha de navegador no meio da serifa. */
+.texto ul{list-style:none;padding:0;margin:0}
+.texto li{position:relative;padding-left:26px}
+.texto li + li{margin-top:.72em}
+.texto li::before{
+  content:"";position:absolute;left:0;top:.66em;
+  width:14px;height:1px;background:var(--latao);
+}
+
 blockquote.cartao footer{margin-top:auto;padding-top:16px;color:var(--latao)}
 .claro blockquote.cartao p{color:var(--grafite)}
 
