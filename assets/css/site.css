@@ -890,3 +890,41 @@ blockquote.cartao footer{margin-top:auto;padding-top:16px;color:var(--latao)}
 .azul .giro__seta{border-color:rgba(242,237,227,.45);color:var(--porcelana)}
 .azul .giro__seta:hover{border-color:var(--porcelana);background:rgba(242,237,227,.1)}
 .azul .giro__item img{background:rgba(13,42,74,.5)}
+
+/* --- lista de noivas ------------------------------------------------------ */
+/* Ícones de linha. A casa só tinha marca de rede social (cheia); estes são
+   traço fino, o mesmo peso do tracinho de latão, pra sentar junto da serifa. */
+.icone--linha{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+/* O laço em fio, grande e apagado, atrás de uma seção. É o mesmo truque do
+   fundo dos carrosséis: dá matéria sem disputar com o texto. */
+.secao--laco{position:relative;overflow:hidden}
+.secao--laco > .envelope{position:relative;z-index:1}
+.secao__laco{
+  position:absolute;right:-14%;bottom:-22%;width:min(74vw,900px);
+  color:var(--porcelana);opacity:.085;pointer-events:none;
+}
+.secao__laco svg{display:block;width:100%;height:auto;fill:none;stroke:currentColor;stroke-width:2.2}
+
+/* Ficha com ícone na frente de cada dado (o cartão de quem foi convidado). */
+.ficha--icones dt{display:flex;align-items:center;gap:9px}
+.ficha--icones .icone{width:15px;height:15px;flex:none}
+.cartao .ficha{gap:20px}
+.cartao .ficha dd{font-size:16.5px}
+
+/* Promessas: a lista com marca de confere, pra "garante" e "não faz". */
+.promessa{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.promessa li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.55;color:var(--tinta-suave)}
+.claro .promessa li{color:#54514A}
+.promessa .icone{width:20px;height:20px;flex:none;margin-top:2px;color:var(--latao)}
+.cartao__cabeca{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.cartao__cabeca .icone{width:26px;height:26px;flex:none;color:var(--latao)}
+.cartao__cabeca h3{margin:0}
+.cartao--garante{border-top:3px solid var(--latao)}
+.claro .cartao--garante{background:#FBF8F1}
+.cartao--limite{border-top:3px solid rgba(36,40,44,.18)}
+.cartao--limite .promessa .icone{color:var(--tinta-fraca)}
+.claro .cartao--limite .promessa .icone{color:#8E8A80}
+
+/* Ícone grande no alto de um cartão (as festas). */
+.cartao__icone{width:34px;height:34px;color:var(--latao);margin-bottom:2px}
